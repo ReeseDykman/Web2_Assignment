@@ -1,0 +1,60 @@
+html{
+    background-color: grey;
+    height: 100vh;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+div{
+    margin: 50px;
+    height: 100vh;
+    background-color: black;
+    box-shadow: 0 0 10px 5px darkgray;
+}
+section, table{
+    color: white;
+}
+header{
+    background-color: aqua;
+    width: 100%;
+}
+#songInfoContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "a1 a1 a1 a1"
+                "a2 a2 a2 a2"
+                "a3 a4 a5 a6";
+}
+#songTitle, #artistName, #genre, #type, #year, #duration{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#songTitle{
+    grid-area: a1;
+}
+#artistName{
+    grid-area: a2;
+}
+#genre{
+    grid-area: a3;
+}
+#type{
+    grid-area: a4;
+}
+#year{
+    grid-area: a5;
+}
+#duration{
+    grid-area: a6;
+}
+#songStats{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
