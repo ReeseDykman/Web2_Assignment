@@ -1,0 +1,33 @@
+html{
+    background-color: rgb(126, 141,133);
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+header,footer{
+    background-color: rgb(246, 142, 95);
+    width: 100%;
+}
+header{
+    border-bottom: 10px solid black;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    border-top: 10px solid black;
+}
+section{
+    color: white;
+}
+.black-box{
+    margin: 50px;
+    background-color: black;
+    box-shadow: 0 0 10px 5px darkgray;
+}
+label{
+    font-size: 30pt;
+}

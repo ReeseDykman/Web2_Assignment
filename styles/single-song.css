@@ -1,24 +1,5 @@
-html{
-    background-color: grey;
-    height: 100vh;
-}
-body{
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-}
-div{
-    margin: 50px;
-    height: 100vh;
-    background-color: black;
-    box-shadow: 0 0 10px 5px darkgray;
-}
-section, table{
+table{
     color: white;
-}
-header{
-    background-color: aqua;
-    width: 100%;
 }
 #songInfoContainer{
     display: grid;

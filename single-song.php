@@ -20,6 +20,7 @@ $data = $songs->fetchAll();
         <meta name="keywords" content="song, song info, song info page">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles/single-song.css" /> 
+        <link rel="stylesheet" href="./styles/global-styles.css" /> 
     </head>
 
     <body>
@@ -29,7 +30,7 @@ $data = $songs->fetchAll();
 
 
 
-        <div>
+        <div class="black-box">
 
             <section id = "songInfoContainer">
                 <h1 id = "songTitle"><?=$data[0]["title"]?> </h1>
@@ -79,7 +80,8 @@ $data = $songs->fetchAll();
             </section>
         </div>
     </body>
-
+    
+    <footer> Footer </footer>
 
 
 

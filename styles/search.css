@@ -1,0 +1,32 @@
+#searchDiv{
+    background-color: rgb(99, 105, 209);
+    margin: 25px;
+    height: 100%;
+    border: solid 20px black;
+}
+fieldset{
+    border: none;
+    display: grid;
+    grid-gap: 20px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 36pt;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+input, select{
+    height: 25px;
+    font-size: 20pt;
+}
+select{
+    height: 35px;
+}
+#submit{
+    width: 100px;
+}
