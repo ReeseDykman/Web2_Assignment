@@ -5,19 +5,23 @@ require_once './includes/songs-helper.php';
 
 $db = new database();
 $connection = $db->createConnection(DBCONNSTRING, DBUSER, DBPASS);
+$searcher = new songSearcher($connection);
 
 if(isset($_GET['searchBy'])){
     if($_GET['searchBy'] == 'genre'){
-            $data = getGenreSearch($db, $connection, $_GET['genre']);
+            $data = $searcher->genreSearch($_GET['genre']);
     }
     elseif($_GET['searchBy'] == 'title'){
-        $data = getTitleSearch($db, $connection, $_GET['titleText']);
+        $data = $searcher->titleSearch($_GET['titleText']);
     }
     elseif($_GET['searchBy'] == 'artist'){
-        $data = getArtistSearch($db, $connection, $_GET['artist']);
+        $data = $searcher->artistSearch($_GET['artist']);
     }
     elseif($_GET['searchBy'] == 'year'){
-        $data = getYearSearch($db, $connection, $_GET['year'], $_GET['lessYearText'], $_GET['greaterYearText']);
+        if($_GET['year'] == 'less')
+            $data = $searcher->lessYearSearch($_GET['lessYearText']);
+        else
+            $data = $searcher->greaterYearSearch($_GET['greaterYearText']);
     }
 }else{
     $criteria = false;
