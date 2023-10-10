@@ -1,29 +1,30 @@
 .purple-box{
     background-color: rgb(99, 105, 209);
     margin: 25px;
-    height: 100%;
     border: solid 20px black;
 }
 html{
     background-color: rgb(126, 141,133);
 }
+
 body{
     margin: 0;
     padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    color: white;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 50px;
 }
 header,footer{
     background-color: rgb(246, 142, 95);
     width: 100%;
+    max-height: 100px;
 }
 header{
     border-bottom: 10px solid black;
 }
 footer{
-    position: absolute;
-    bottom: 0;
     border-top: 10px solid black;
 }
 section{

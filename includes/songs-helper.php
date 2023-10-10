@@ -21,20 +21,29 @@
             echo "<option value='" . $row["genre_id"] . "' label='" . $row['genre_name'] . "'></option>";
         }
     }
-    function generateSearchList($data){
+    function generateSearchTable($data){
         ?>
-            <ul>
+
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Year</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
+            <tbody>
             <?php
             foreach($data as $row){?>
-                <li>
-                    <a href=single-song.php?id=<?=$row["song_id"]?>>
-                    <?=$row['title'], $row['artist_name'], $row['year'], $row['genre_name']?>
-                    </a>
-                </li>
+                <tr>
+                    <td><a href=single-song.php?id=<?=$row["song_id"]?>><?=$row['title']?></a></td>
+                    <td><?=$row['artist_name']?></td>
+                    <td><?=$row['year']?></td>
+                    <td><?=$row['genre_name']?></td>
+                </tr>
             <?php
-            }
+            } ?>
+            </tbody>
+    <?php
     }
-
-
-
 ?>

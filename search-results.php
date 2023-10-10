@@ -6,16 +6,37 @@ require_once './includes/songs-helper.php';
 $db = new database();
 $connection = $db->createConnection(DBCONNSTRING, DBUSER, DBPASS);
 $searcher = new songSearcher($connection);
+$searchCriteria = "Search criteria: " ;
 
 if(isset($_GET['searchBy'])){
+    $searchCriteria .= "Search by " . $_GET['searchBy'];
+
     if($_GET['searchBy'] == 'genre'){
-            $data = $searcher->genreSearch($_GET['genre']);
+            if(isset($_GET['genre'])){
+                $data = $searcher->genreSearch($_GET['genre']);
+                $searchCriteria .= " : " . $searcher->getGenreName($_GET['genre']) . ".";
+            }else{
+                $searchCriteria .= " : No genre selected, showing all.";
+                $data = $searcher->orderByGenre();
+            }
     }
     elseif($_GET['searchBy'] == 'title'){
-        $data = $searcher->titleSearch($_GET['titleText']);
+        if($_GET['titleText'] != "" && isset($_GET['titleText'])){
+            $data = $searcher->titleSearch($_GET['titleText']);
+            $searchCriteria .= " : " .$_GET['titleText'];
+        }else{
+            $searchCriteria .= " : No title selected, showing all.";
+            $data = $searcher->orderByTitle();
+        }
     }
     elseif($_GET['searchBy'] == 'artist'){
-        $data = $searcher->artistSearch($_GET['artist']);
+        if(isset($_GET['artist'])){
+            $data = $searcher->artistSearch($_GET['artist']);
+            $searchCriteria .= " : " . $searcher->getArtistName($_GET['artist']) . ".";
+        }else{
+            $searchCriteria .= " : No artist selected, showing all.";
+            $data = $searcher->orderByArtist();
+        }
     }
     elseif($_GET['searchBy'] == 'year'){
         if($_GET['year'] == 'less')
@@ -23,8 +44,6 @@ if(isset($_GET['searchBy'])){
         else
             $data = $searcher->greaterYearSearch($_GET['greaterYearText']);
     }
-}else{
-    $criteria = false;
 }
 
 ?>
@@ -39,6 +58,7 @@ if(isset($_GET['searchBy'])){
         <meta name="keywords" content="song, song search, song search page">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles\global-styles.css"/> 
+        <link rel="stylesheet" href="styles\results.css"/>
     </head>
 
     <body>
@@ -49,11 +69,14 @@ if(isset($_GET['searchBy'])){
         <div class="purple-box">
 
             <h1>Browse / Search Results</h1>
-            <h2>Search Criteria</h2>
+            <h2><?=$searchCriteria?></h2>
 
-            <?=generateSearchList($data)?>
-        
-
+            <div class="table-wrapper">
+                <table>
+                    <?=generateSearchTable($data)?>
+                </table>
+            </div>
+    
         </div>
 
         <footer> Footer </footer>

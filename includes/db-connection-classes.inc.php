@@ -51,6 +51,22 @@ class songSearcher{
         $results = $results->fetchAll();
         return $results;
     }
+    function getGenreName($criteria){
+        $sql = "SELECT genre_name FROM genres WHERE genre_id = " . $criteria;
+        
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results[0]['genre_name'];
+    }
+    function orderByGenre(){
+        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+            INNER JOIN genres ON songs.genre_id = genres.genre_id
+            INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY genre_name";
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
     function titleSearch($criteria){
         $sql = self::$baseSQL . "songs.title LIKE '%" . $criteria ."%'";
         
@@ -58,9 +74,34 @@ class songSearcher{
         $results = $results->fetchAll();
         return $results;
     }
+    function orderByTitle(){
+        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+            INNER JOIN genres ON songs.genre_id = genres.genre_id
+            INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY title";
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
     function artistSearch($criteria){
         $sql = self::$baseSQL . "songs.artist_id = " . $criteria;
         
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+    function getArtistName($criteria){
+        $sql = "SELECT artist_name FROM artists WHERE artist_id = " . $criteria;
+        
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results[0]['artist_name'];
+    }
+    function orderByArtist(){
+        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+            INNER JOIN genres ON songs.genre_id = genres.genre_id
+            INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY artist_name";
+
         $results = database::dbquery($this->connection, $sql, null);
         $results = $results->fetchAll();
         return $results;
