@@ -34,12 +34,23 @@
             </thead>
             <tbody>
             <?php
-            foreach($data as $row){?>
+            foreach($data as $row){
+                $songTitle = $row['title'];
+                if(strlen($songTitle) > 25){
+                    $songTitle = substr($songTitle,0,24) . "&hellip;";
+                }
+                ?>
                 <tr>
-                    <td><a href=single-song.php?id=<?=$row["song_id"]?>><?=$row['title']?></a></td>
+                    <td>
+                        <a href=single-song.php?id=<?=$row["song_id"]?>><?=$songTitle?></a>
+                    </td>
                     <td><?=$row['artist_name']?></td>
                     <td><?=$row['year']?></td>
                     <td><?=$row['genre_name']?></td>
+                    <td>
+                        <a href=single-song.php?id=<?=$row["song_id"]?>>View Song</a>
+                    </td>
+                    <td><a href=favourites.php?id=<?=$row["song_id"]?>>Favourite</a></td>
                 </tr>
             <?php
             } ?>

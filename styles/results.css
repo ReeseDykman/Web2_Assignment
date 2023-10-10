@@ -1,15 +1,19 @@
 table{
-    font-size: 20pt;
     justify-items: left;
     width: 100%;
     max-width: 1000px;
 }
 td,th{
     word-break: break-all;
-    padding: 10px 40px 10px 40px;
+    padding: 10px 15px 10px 15px;
 }
 th{
     font-weight: 800;
+    font-size: 20pt;
+    text-align: left;
+}
+td{
+    font-size: 12pt;
 }
 tr:first-child, td:nth-child(1){
     max-width: 300px;
@@ -25,4 +29,11 @@ tr:nth-child(3), td:nth-child(3){
     flex-direction: column;
     align-items: center;
     justify-items: center;
+}
+#top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    padding-left: 15%;
 }

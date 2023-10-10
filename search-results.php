@@ -39,11 +39,22 @@ if(isset($_GET['searchBy'])){
         }
     }
     elseif($_GET['searchBy'] == 'year'){
-        if($_GET['year'] == 'less')
-            $data = $searcher->lessYearSearch($_GET['lessYearText']);
-        else
-            $data = $searcher->greaterYearSearch($_GET['greaterYearText']);
+        if(isset($_GET['year']) && (!empty($_GET['lessYearText']) || !empty($_GET['greaterYearText']))){
+            if($_GET['year'] == 'less'){
+                $searchCriteria .= " : Less than " . $_GET['lessYearText'] . ".";
+                $data = $searcher->lessYearSearch($_GET['lessYearText']);
+            }elseif($_GET['year'] == 'greater'){
+                $searchCriteria .= " : Greater than " . $_GET['greaterYearText'] . ".";
+                $data = $searcher->greaterYearSearch($_GET['greaterYearText']);
+            }
+        }else{
+            $data = $searcher->orderByYear();
+            $searchCriteria .= " : Failed to select or fill less/greater options, showing all.";
+        }
     }
+}else{
+    $searchCriteria = "Browse Mode";
+    $data = $searcher->orderByArtist();
 }
 
 ?>
@@ -67,8 +78,13 @@ if(isset($_GET['searchBy'])){
         </header>
 
         <div class="purple-box">
+            <div id = 'top'>
+                <h1>Browse / Search Results</h1>
+                <form method="get" action="search-results.php">
+                    <button type ='submit'>Clear Search</input>
+                </form>
+            </div>
 
-            <h1>Browse / Search Results</h1>
             <h2><?=$searchCriteria?></h2>
 
             <div class="table-wrapper">
@@ -83,8 +99,4 @@ if(isset($_GET['searchBy'])){
 
 
     </body>
-
-
-
-
 </html>

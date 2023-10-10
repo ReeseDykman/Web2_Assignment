@@ -107,14 +107,30 @@ class songSearcher{
         return $results;
     }
     function lessYearSearch($criteria){
-        $sql = self::$baseSQL . "songs.year < " . $criteria;
+        $sql = self::$baseSQL . "songs.year < " . $criteria . " ORDER BY year";
         
         $results = database::dbquery($this->connection, $sql, null);
         $results = $results->fetchAll();
         return $results;
     }
     function greaterYearSearch($criteria){
-        $sql = self::$baseSQL . "songs.year > " . $criteria;
+        $sql = self::$baseSQL . "songs.year > " . $criteria . " ORDER BY year";
+        
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+    function orderByYear(){
+        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+            INNER JOIN genres ON songs.genre_id = genres.genre_id
+            INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY year";
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+    function getFavourite($criteria){
+        $sql = self::$baseSQL . "songs.song_id=" . $criteria;
         
         $results = database::dbquery($this->connection, $sql, null);
         $results = $results->fetchAll();
