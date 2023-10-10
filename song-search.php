@@ -25,7 +25,7 @@
         </header>
 
         <section>
-            <div id="searchDiv">
+            <div class= "purple-box">
                 <h1>Song Search</h1>
                 <form method="get" action="search-results.php">
                     <fieldset>
@@ -38,14 +38,14 @@
                             <input type="radio" id="artistRadio" name="searchBy" value="artist" required>
                             <label for="artist">Artist:</label>
                             <select name="artist">
-                                <option value="0" disabled selected>Select Artist </option>
+                                <option value="" disabled selected>Select Artist </option>
                                 <?=generateArtistOptions($connection, $db)?>
                             </select>
             
                             <input type="radio" id="genreRadio" name="searchBy" value="genre" required>
                             <label for="genre">Genre:</label>
                             <select name="genre">
-                                <option value="0" disabled selected>Select Genre </option>
+                                <option value="" disabled selected>Select Genre </option>
                                 <?=generateGenreOptions($connection, $db)?>
                             </select>
                         </div>
@@ -55,11 +55,11 @@
 
                             <input type="radio" id="lessYearRadio" name="year" value="less">
                             <label for="lessYearRadio">Less</label>
-                            <input type="number" name="lessYearText" placeholder="YearL" id="lessYearTxt" maxlength=4 min=2015 max=2020>
+                            <input type="number" name="lessYearText" placeholder="YearL" id="lessYearTxt" maxlength=4 minlength=4 max=2020>
 
                             <input type="radio" id="greaterYearRadio" name="year" value="greater">
                             <label for="greaterYearRadio">Greater</label>
-                            <input type="number" name="greaterYearText" placeholder="YearG" id="greaterYearTxt" maxlength=4 min=2015 max=2020>
+                            <input type="number" name="greaterYearText" placeholder="YearG" id="greaterYearTxt" maxlength=4 minlength=4 min=2015>
                         </div>
                         <button type="submit" id="submit">Search </button>
 

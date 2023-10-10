@@ -34,5 +34,15 @@ class database{
     }
 }
 
+class songSearcher{
+
+    private static $basesql =""
+
+    function __construct($conn){
+        $this->connection = $conn;
+    }
+
+}
+
 
 ?>

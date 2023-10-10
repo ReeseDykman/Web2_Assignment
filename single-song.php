@@ -6,7 +6,7 @@ $connection = $db->createConnection(DBCONNSTRING, DBUSER, DBPASS);
 $songs = $db->dbquery($connection,"SELECT * FROM songs INNER JOIN artists ON songs.artist_id =
                         artists.artist_id  INNER JOIN
                         genres ON songs.genre_id = genres.genre_id INNER JOIN
-                         types ON artist_type_id = type_id", null);
+                         types ON artist_type_id = type_id WHERE song_id = " . $_GET['id'], null);
 $data = $songs->fetchAll();
 ?>
 
@@ -80,7 +80,7 @@ $data = $songs->fetchAll();
             </section>
         </div>
     </body>
-    
+
     <footer> Footer </footer>
 
 

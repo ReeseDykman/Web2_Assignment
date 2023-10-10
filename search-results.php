@@ -6,7 +6,22 @@ require_once './includes/songs-helper.php';
 $db = new database();
 $connection = $db->createConnection(DBCONNSTRING, DBUSER, DBPASS);
 
-if(isset($_GET['']))
+if(isset($_GET['searchBy'])){
+    if($_GET['searchBy'] == 'genre'){
+            $data = getGenreSearch($db, $connection, $_GET['genre']);
+    }
+    elseif($_GET['searchBy'] == 'title'){
+        $data = getTitleSearch($db, $connection, $_GET['titleText']);
+    }
+    elseif($_GET['searchBy'] == 'artist'){
+        $data = getArtistSearch($db, $connection, $_GET['artist']);
+    }
+    elseif($_GET['searchBy'] == 'year'){
+        $data = getYearSearch($db, $connection, $_GET['year'], $_GET['lessYearText'], $_GET['greaterYearText']);
+    }
+}else{
+    $criteria = false;
+}
 
 ?>
 
@@ -19,8 +34,7 @@ if(isset($_GET['']))
         <meta name="description" content="Song search page">
         <meta name="keywords" content="song, song search, song search page">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./styles/global-styles.css" /> 
-        <link rel="stylesheet" href="./styles/search.css" />
+        <link rel="stylesheet" href="styles\global-styles.css"/> 
     </head>
 
     <body>
@@ -28,15 +42,15 @@ if(isset($_GET['']))
             header
         </header>
 
-        <section>
+        <div class="purple-box">
 
             <h1>Browse / Search Results</h1>
             <h2>Search Criteria</h2>
 
-            <!-- <?=generateSearchList()?> -->
+            <?=generateSearchList($data)?>
         
 
-        </section>
+        </div>
 
         <footer> Footer </footer>
 
