@@ -3,7 +3,7 @@ fieldset{
     display: grid;
     grid-gap: 20px;
 }
-h1{
+#songSearch{
     display: flex;
     justify-content: center;
     align-content: center;

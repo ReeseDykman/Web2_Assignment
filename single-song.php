@@ -1,6 +1,8 @@
 <?php
 require_once './includes/db-connection-classes.inc.php';
 require_once './includes/config.inc.php';
+require_once './includes/songs-helper.php';
+
 $db = new database();
 $connection = $db->createConnection(DBCONNSTRING, DBUSER, DBPASS);
 $songs = $db->dbquery($connection,"SELECT * FROM songs INNER JOIN artists ON songs.artist_id =
@@ -25,7 +27,7 @@ $data = $songs->fetchAll();
 
     <body>
         <header> 
-            header
+            <?=generateHeader();?>
         </header>
 
 
@@ -81,7 +83,7 @@ $data = $songs->fetchAll();
         </div>
     </body>
 
-    <footer> Footer </footer>
+    <footer><?=generateFooter()?></footer>
 
 
 

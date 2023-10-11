@@ -74,15 +74,13 @@ if(isset($_GET['searchBy'])){
 
     <body>
         <header> 
-            header
+            <?=generateHeader();?>
         </header>
 
         <div class="purple-box">
             <div id = 'top'>
                 <h1>Browse / Search Results</h1>
-                <form method="get" action="search-results.php">
-                    <button type ='submit'>Clear Search</input>
-                </form>
+                <a href= "search-results.php" class="abutton">Clear Search</a>
             </div>
 
             <h2><?=$searchCriteria?></h2>
@@ -95,7 +93,7 @@ if(isset($_GET['searchBy'])){
     
         </div>
 
-        <footer> Footer </footer>
+        <footer><?=generateFooter()?></footer>
 
 
     </body>

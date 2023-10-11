@@ -23,6 +23,7 @@ $connection = $db->createConnection(DBCONNSTRING, DBUSER, DBPASS);
 $searcher = new songSearcher($connection);
 $data = array();
 
+$favourites = $_SESSION["favourites"];
 foreach($favourites as $id){
     $data[] = $searcher->getFavourite($id)[0];
 }
@@ -43,28 +44,26 @@ foreach($favourites as $id){
 
     <body>
         <header> 
-            header
+            <?=generateHeader();?>
         </header>
 
         <div class="purple-box">
-            <div id = 'top'>
+            <div id = 'top-favs'>
                 <h1>Favourites Page</h1>
-                <form method="get" action="search-results.php">
-                    <button type ='submit'>Remove All</input>
-                </form>
+                <a href= "includes/remove-favourite.inc.php?id=all" class="abutton">Clear Favourites</a>
             </div>
 
             <h2>Browse Favourites</h2>
 
             <div class="table-wrapper">
                 <table>
-                    <?=generateSearchTable($data)?>
+                    <?=generateFavouritesTable($data)?>
                 </table>
             </div>
     
         </div>
 
-        <footer> Footer </footer>
+        <footer> <?=generateFooter()?> </footer>
 
 
     </body>

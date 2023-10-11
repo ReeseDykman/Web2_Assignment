@@ -6,7 +6,22 @@
 html{
     background-color: rgb(126, 141,133);
 }
-
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "a1 a2 a2";
+}
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: a2;
+}
+body>header>.title>h2,h1{
+    margin: 0;
+    grid-area: a1;
+}
 body{
     margin: 0;
     padding: 0;
@@ -19,13 +34,14 @@ body{
 header,footer{
     background-color: rgb(246, 142, 95);
     width: 100%;
-    max-height: 100px;
 }
 header{
     border-bottom: 10px solid black;
+    max-height: 69px;
 }
 footer{
     border-top: 10px solid black;
+    max-height: 175px;
 }
 section{
     color: white;
@@ -37,4 +53,24 @@ section{
 }
 label{
     font-size: 30pt;
+}
+.abutton{
+    border: solid 2px black;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: grey;
+    color: white;
+}
+.bbutton{
+    border: solid 2px black;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: grey;
+    color: white;
 }

@@ -37,3 +37,13 @@ tr:nth-child(3), td:nth-child(3){
     width: 50%;
     padding-left: 15%;
 }
+#top>form{
+    padding-top: 5px;
+}
+#top-favs{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    padding-left: 25%;
+}

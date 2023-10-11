@@ -21,12 +21,12 @@
 
     <body>
         <header> 
-            header
+            <?=generateHeader();?>
         </header>
 
         <section>
             <div class= "purple-box">
-                <h1>Song Search</h1>
+                <h1 id="songSearch">Song Search</h1>
                 <form method="get" action="search-results.php">
                     <fieldset>
                         <div id ="titleDiv">
@@ -68,7 +68,7 @@
             <div>
         </section>
 
-        <footer> Footer </footer>
+        <footer><?=generateFooter()?></footer>
 
 
     </body>
