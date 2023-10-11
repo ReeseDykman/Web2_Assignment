@@ -48,7 +48,7 @@ section{
 }
 .black-box{
     margin: 50px;
-    background-color: black;
+    background-color: rgb(100, 100, 100);
     box-shadow: 0 0 10px 5px darkgray;
 }
 label{

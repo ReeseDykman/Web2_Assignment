@@ -27,10 +27,11 @@
                 <h2>Reese Dykman</h2>
             </div>
             <nav>
-                <a href=search-results.php class="abutton">Home</a>
+                <a href=home.php class="abutton">Home</a>
                 <a href=search-results.php class="abutton">Browse</a>
                 <a href=song-search.php class="abutton">Search</a>
                 <a href=favourites.php class="abutton">Favourites</a>
+                <a href=about-us.php class="abutton">About us</a>
             </nav>
 <?php
     }

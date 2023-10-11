@@ -138,6 +138,101 @@ class songSearcher{
     }
 
 }
+class homeSearcher{
 
+    function __construct($conn){
+        $this->connection = $conn;
+    }
+
+    function getTopGenres(){
+        $sql = "SELECT songs.genre_id, genres.genre_name, COUNT(*) AS count FROM songs 
+            INNER JOIN genres ON songs.genre_id = genres.genre_id GROUP BY songs.genre_id 
+            ORDER BY count DESC LIMIT 10" ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+
+    }
+
+    function getTopArtists(){
+        $sql = "SELECT songs.artist_id, artists.artist_name, COUNT(*) AS count FROM songs 
+            INNER JOIN artists ON songs.artist_id = artists.artist_id GROUP BY songs.artist_id 
+            ORDER BY count DESC LIMIT 10" ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+
+    function getTopSongs(){
+        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, popularity FROM songs 
+            INNER JOIN artists ON songs.artist_id = artists.artist_id 
+            ORDER BY popularity DESC LIMIT 10" ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+
+    function getOneHitWonders(){
+        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, popularity,
+            COUNT(songs.artist_id) as count FROM songs 
+            INNER JOIN artists ON songs.artist_id = artists.artist_id GROUP BY songs.artist_id
+            HAVING count(songs.artist_id) = 1 ORDER BY songs.popularity DESC LIMIT 10 " ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+
+    function getAcoustic(){
+        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, acousticness, duration
+                FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
+                WHERE songs.acousticness > 40 
+                GROUP BY songs.artist_id ORDER BY songs.duration DESC LIMIT 10" ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+
+    function getClub(){
+        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, danceability, 
+                energy, danceability*1.6+energy*1.4 AS club
+                FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
+                WHERE songs.danceability > 80 
+                ORDER BY club DESC LIMIT 10" ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+
+    function getRunning(){
+        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, bpm, energy, valence,
+                energy*1.3+valence*1.6 AS run
+                FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
+                WHERE bpm > 120 AND bpm < 125 
+                ORDER BY run DESC LIMIT 10" ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+
+    function getStudying(){
+        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, bpm, speechiness, valence, acousticness,
+                acousticness*0.8+100 - speechiness+100-valence AS study
+                FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
+                WHERE bpm > 100 AND bpm < 115 AND speechiness > 1 AND speechiness <20
+                ORDER BY study DESC LIMIT 10" ;
+
+        $results = database::dbquery($this->connection, $sql, null);
+        $results = $results->fetchAll();
+        return $results;
+    }
+
+}
 
 ?>
