@@ -113,6 +113,50 @@
             </tbody>
 <?php
     }
+    function GenerateHomeList($header, $data){
+        if($header == "Top Genres"){ ?>
+            <div class=purple-box>
+                <h2><?=$header?></h2>
+                <ul> 
+            <?php
+                foreach($data as $row){?>
+                    <li><a href=search-results.php?searchBy=genre&genre=<?=$row['genre_id']?>><?=$row['genre_name']?></a></li>
+            <?php
+                } ?>
+                </ul>
+                </div>
+            <?php
+        }elseif($header == "Top Artists"){ ?>
+            <div class=purple-box>
+                <h2><?=$header?></h2>
+                <ul> 
+            <?php
+                foreach($data as $row){?>
+                    <li><a href=search-results.php?searchBy=artist&artist=<?=$row['artist_id']?>><?=$row['artist_name']?></a></li>
+            <?php
+                } ?>
+                </ul>
+                </div>
+            <?php
+        }else{ ?>
+            <div class=purple-box>
+                <h1><?=$header?></h1>
+                <ul> 
+            <?php
+                foreach($data as $row){ 
+                    $songTitle = $row['title'];
+                    if(strlen($songTitle) > 25){
+                        $songTitle = substr($songTitle,0,24) . "&hellip;";
+                    }?>
+                    <li><a href=single-song.php?id=<?=$row['song_id']?>><?=$songTitle?></a> - 
+                        <?=$row['artist_name']?>
+                    </li>
+            <?php } ?>
+                </ul>
+            </div>
+<?php
+        }
+    }
 
 
 ?>

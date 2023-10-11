@@ -7,8 +7,14 @@ $db = new database();
 $connection = $db->createConnection(DBCONNSTRING, DBUSER, DBPASS);
 $searcher = new homeSearcher($connection);
 
-$topGenres = $searcher->getStudying();
-print_r($topGenres);
+$topGenres = $searcher->getTopGenres();
+$topArtists = $searcher->getTopArtists();
+$mostPopular = $searcher->getTopSongs();
+$oneHitWonders = $searcher->getOneHitWonders();
+$longestAcoustic = $searcher->getAcoustic();
+$club = $searcher->getClub();
+$runningSongs = $searcher->getRunning();
+$studySongs = $searcher->getStudying();
 ?>
 
 <!DOCTYPE html>
@@ -36,133 +42,14 @@ print_r($topGenres);
         </div>
 
         <section class=black-box>
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-
-            <div class=purple-box>
-                <h2>Hello</h2>
-                <ul> 
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
+            <?=GenerateHomeList("Top Genres", $topGenres)?>
+            <?=GenerateHomeList("Top Artists", $topArtists)?>
+            <?=GenerateHomeList("Most Popular", $mostPopular)?>
+            <?=GenerateHomeList("One Hit Wonders", $oneHitWonders)?>
+            <?=GenerateHomeList("Longest Acoustics", $longestAcoustic)?>
+            <?=GenerateHomeList("At the Club", $club)?>
+            <?=GenerateHomeList("Running Songs", $runningSongs)?>
+            <?=GenerateHomeList("Studying", $studySongs)?>
 
         </section>
         

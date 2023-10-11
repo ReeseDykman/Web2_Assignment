@@ -9,9 +9,13 @@ $searcher = new songSearcher($connection);
 $data = array();
 
 session_start();
-$favourites = $_SESSION["favourites"];
-foreach($favourites as $id){
-    $data[] = $searcher->getFavourite($id)[0];
+
+if(isset($_SESSION["favourites"])){
+    $favourites = $_SESSION["favourites"];
+
+    foreach($favourites as $id){
+        $data[] = $searcher->getFavourite($id)[0];
+    }
 }
 ?>
 

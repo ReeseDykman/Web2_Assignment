@@ -1,11 +1,13 @@
 section{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 .purple-box{
     display: flex;
     justify-content: center;
     align-content: center;
+    align-items: center;
+    justify-items: center;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -21,4 +23,12 @@ section{
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+}
+li{
+    margin-top: 10px;
+    font-size: 15pt;
+}
+.purple-box>h1{
+    text-align: center;
+    font-size: 36px;
 }

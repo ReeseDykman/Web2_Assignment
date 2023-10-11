@@ -166,7 +166,7 @@ class homeSearcher{
     }
 
     function getTopSongs(){
-        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, popularity FROM songs 
+        $sql = "SELECT song_id, songs.title, songs.artist_id, artists.artist_name, popularity FROM songs 
             INNER JOIN artists ON songs.artist_id = artists.artist_id 
             ORDER BY popularity DESC LIMIT 10" ;
 
@@ -176,7 +176,7 @@ class homeSearcher{
     }
 
     function getOneHitWonders(){
-        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, popularity,
+        $sql = "SELECT song_id, songs.title, songs.artist_id, artists.artist_name, popularity,
             COUNT(songs.artist_id) as count FROM songs 
             INNER JOIN artists ON songs.artist_id = artists.artist_id GROUP BY songs.artist_id
             HAVING count(songs.artist_id) = 1 ORDER BY songs.popularity DESC LIMIT 10 " ;
@@ -187,7 +187,7 @@ class homeSearcher{
     }
 
     function getAcoustic(){
-        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, acousticness, duration
+        $sql = "SELECT song_id, songs.title, songs.artist_id, artists.artist_name, acousticness, duration
                 FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
                 WHERE songs.acousticness > 40 
                 GROUP BY songs.artist_id ORDER BY songs.duration DESC LIMIT 10" ;
@@ -198,7 +198,7 @@ class homeSearcher{
     }
 
     function getClub(){
-        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, danceability, 
+        $sql = "SELECT song_id, songs.title, songs.artist_id, artists.artist_name, danceability, 
                 energy, danceability*1.6+energy*1.4 AS club
                 FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
                 WHERE songs.danceability > 80 
@@ -210,7 +210,7 @@ class homeSearcher{
     }
 
     function getRunning(){
-        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, bpm, energy, valence,
+        $sql = "SELECT song_id, songs.title, songs.artist_id, artists.artist_name, bpm, energy, valence,
                 energy*1.3+valence*1.6 AS run
                 FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
                 WHERE bpm > 120 AND bpm < 125 
@@ -222,7 +222,7 @@ class homeSearcher{
     }
 
     function getStudying(){
-        $sql = "SELECT songs.title, songs.artist_id, artists.artist_name, bpm, speechiness, valence, acousticness,
+        $sql = "SELECT song_id, songs.title, songs.artist_id, artists.artist_name, bpm, speechiness, valence, acousticness,
                 acousticness*0.8+100 - speechiness+100-valence AS study
                 FROM songs INNER JOIN artists ON songs.artist_id = artists.artist_id 
                 WHERE bpm > 100 AND bpm < 115 AND speechiness > 1 AND speechiness <20
@@ -232,7 +232,6 @@ class homeSearcher{
         $results = $results->fetchAll();
         return $results;
     }
-
 }
 
 ?>
