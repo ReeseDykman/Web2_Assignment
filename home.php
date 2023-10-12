@@ -23,7 +23,7 @@ $studySongs = $searcher->getStudying();
         <meta charset="utf-8">
         <title>Assignment 1</title>
         <meta name="author" content="Reese Dykman">
-        <meta name="description" content="Single song page">
+        <meta name="description" content="Song searcher home page">
         <meta name="keywords" content="song, song info, song info home page">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles/home.css" /> 

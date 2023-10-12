@@ -83,12 +83,14 @@ a{
     text-decoration: none;
     color: white;
 }
+#title{
+    max-height: 50%;
+}
 @media (max-width:875px){
 
     header{
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
         grid-template-areas: "a1"
                             "a2";
         

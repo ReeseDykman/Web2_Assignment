@@ -1,0 +1,14 @@
+.black-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+h1{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+@media (max-width: 750px){
+    .black-box{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

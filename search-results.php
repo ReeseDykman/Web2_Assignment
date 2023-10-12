@@ -65,7 +65,7 @@ if(isset($_GET['searchBy'])){
         <meta charset="utf-8">
         <title>Assignment 1</title>
         <meta name="author" content="Reese Dykman">
-        <meta name="description" content="Song search page">
+        <meta name="description" content="Song search results page">
         <meta name="keywords" content="song, song search, song search results page">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles\global-styles.css"/> 
