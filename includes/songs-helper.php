@@ -50,6 +50,7 @@
                     <th>Artist</th>
                     <th>Year</th>
                     <th>Genre</th>
+                    <th>Popularity</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,8 +68,9 @@
                     <td><?=$row['artist_name']?></td>
                     <td><?=$row['year']?></td>
                     <td><?=$row['genre_name']?></td>
+                    <td><?=$row['popularity']?></td>
                     <td>
-                        <a href=single-song.php?id=<?=$row["song_id"]?> class="bbutton">View Song</a>
+                        <a href=single-song.php?id=<?=$row["song_id"]?> class="bbutton">View</a>
                     </td>
                     <td><a href=includes/add-favourite.inc.php?id=<?=$row["song_id"]?> class="bbutton">Favourite</a></td>
                 </tr>

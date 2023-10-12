@@ -1,6 +1,9 @@
 table{
     color: white;
 }
+.black-box{
+    margin: 20px;
+}
 #songInfoContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -13,6 +16,15 @@ table{
     display: flex;
     justify-content: center;
     align-content: center;
+}
+#songInfoContainer>h1{
+    font-size: 36pt;
+}
+td{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 150px;
+    font-size: 24px;
 }
 #songTitle{
     grid-area: a1;
@@ -33,9 +45,26 @@ table{
     grid-area: a6;
 }
 #songStats{
-    margin-top: 50px;
+    margin: 10px;
     display: flex;
     justify-content: center;
     align-content: center;
 }
-
+@media (max-width:430px){
+    td{
+        padding: 0;
+    }
+}
+@media (max-width:700px){
+    #songInfoContainer{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "a1"
+                            "a2"
+                            "a3"
+                            "a4"
+                            "a5"
+                            "a6";
+    }
+}

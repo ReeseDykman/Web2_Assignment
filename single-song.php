@@ -33,53 +33,55 @@ $data = $songs->fetchAll();
 
 
         <div class="black-box">
-
-            <section id = "songInfoContainer">
-                <h1 id = "songTitle"><?=$data[0]["title"]?> </h1>
-                <h1 id = "artistName"> <?=$data[0]["artist_name"]?> </h1>
-                <h2 id = "genre"><?=$data[0]["genre_name"]?></h2>
-                <h2 id="type"><?=$data[0]["type_name"]?></h2>
-                <h2 id="year"><?=$data[0]["year"]?></h2>
-                <h2 id="duration"><?=$data[0]["duration"]?></h2>
-            </section>
-
-            <section id = "songStats">
-                <table>
-                    <tr>
-                        <th>BPM</th>
-                        <td><?=$data[0]["bpm"]?></td>
-                    </tr>
-                    <tr>
-                        <th>Energy</th>
-                        <td><?=$data[0]["energy"]?></td>
-                    </tr>
-                    <tr>
-                        <th>Danceability</th>
-                        <td><?=$data[0]["danceability"]?></td>
-                    </tr>
-                    <tr>
-                        <th>Liveness</th>
-                        <td><?=$data[0]["liveness"]?></td>
-                    </tr>
-                    <tr>
-                        <th>Valence</th>
-                        <td><?=$data[0]["valence"]?></td>
-                    </tr>
-                    <tr>
-                        <th>Acousticness</th>
-                        <td><?=$data[0]["acousticness"]?></td>
-                    </tr>
-                    <tr>
-                        <th>Speechiness</th>
-                        <td><?=$data[0]["speechiness"]?></td>
-                    </tr>
-                    <tr>
-                        <th>Popularity</th>
-                        <td><?=$data[0]["popularity"]?></td>
-                    </tr>
-                
-                </table>
-            </section>
+            <div class=purple-box>
+                <section id = "songInfoContainer">
+                    <h1 id = "songTitle"><?=$data[0]["title"]?> </h1>
+                    <h1 id = "artistName"> <?=$data[0]["artist_name"]?> </h1>
+                    <h2 id = "genre">Genre: <?=$data[0]["genre_name"]?></h2>
+                    <h2 id="type">Artist Type: <?=$data[0]["type_name"]?></h2>
+                    <h2 id="year">Year: <?=$data[0]["year"]?></h2>
+                    <h2 id="duration">Duration: <?=gmdate("i:s", $data[0]["duration"])?></h2>
+                </section>
+            </div>
+            <div class=purple-box>
+                <section id = "songStats">
+                    <table>
+                        <tr>
+                            <th>BPM</th>
+                            <td><?=$data[0]["bpm"]?></td>
+                        </tr>
+                        <tr>
+                            <th>Energy</th>
+                            <td><?=$data[0]["energy"]?></td>
+                        </tr>
+                        <tr>
+                            <th>Danceability</th>
+                            <td><?=$data[0]["danceability"]?></td>
+                        </tr>
+                        <tr>
+                            <th>Liveness</th>
+                            <td><?=$data[0]["liveness"]?></td>
+                        </tr>
+                        <tr>
+                            <th>Valence</th>
+                            <td><?=$data[0]["valence"]?></td>
+                        </tr>
+                        <tr>
+                            <th>Acousticness</th>
+                            <td><?=$data[0]["acousticness"]?></td>
+                        </tr>
+                        <tr>
+                            <th>Speechiness</th>
+                            <td><?=$data[0]["speechiness"]?></td>
+                        </tr>
+                        <tr>
+                            <th>Popularity</th>
+                            <td><?=$data[0]["popularity"]?></td>
+                        </tr>
+                    
+                    </table>
+                </section>
+            </div>
         </div>
     </body>
 

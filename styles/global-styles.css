@@ -39,7 +39,6 @@ header,footer{
 }
 header{
     border-bottom: 10px solid black;
-    max-height: 69px;
 }
 footer{
     border-top: 10px solid black;
@@ -92,7 +91,7 @@ a{
         grid-template-rows: 1fr 1fr;
         grid-template-areas: "a1"
                             "a2";
-        max-height: 300px;
+        
     }
     body>header>.title>h2,h1{
         margin: 0;

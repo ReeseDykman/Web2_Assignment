@@ -36,7 +36,8 @@ class database{
 
 class songSearcher{
 
-    private static $baseSQL ="SELECT title, song_id, artist_name, year, genre_name FROM songs
+    private static $baseSQL ="SELECT title, song_id, artist_name, year, genre_name, popularity
+                             FROM songs
                             INNER JOIN genres ON songs.genre_id = genres.genre_id
                             INNER JOIN artists ON songs.artist_id = artists.artist_id
                             WHERE ";
@@ -59,7 +60,7 @@ class songSearcher{
         return $results[0]['genre_name'];
     }
     function orderByGenre(){
-        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+        $sql = "SELECT title, song_id, artist_name, year, genre_name, popularity FROM songs
             INNER JOIN genres ON songs.genre_id = genres.genre_id
             INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY genre_name";
 
@@ -75,7 +76,7 @@ class songSearcher{
         return $results;
     }
     function orderByTitle(){
-        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+        $sql = "SELECT title, song_id, artist_name, year, genre_name, popularity FROM songs
             INNER JOIN genres ON songs.genre_id = genres.genre_id
             INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY title";
 
@@ -98,7 +99,7 @@ class songSearcher{
         return $results[0]['artist_name'];
     }
     function orderByArtist(){
-        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+        $sql = "SELECT title, song_id, artist_name, year, genre_name, popularity FROM songs
             INNER JOIN genres ON songs.genre_id = genres.genre_id
             INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY artist_name";
 
@@ -121,7 +122,7 @@ class songSearcher{
         return $results;
     }
     function orderByYear(){
-        $sql = "SELECT title, song_id, artist_name, year, genre_name FROM songs
+        $sql = "SELECT title, song_id, artist_name, year, genre_name, popularity FROM songs
             INNER JOIN genres ON songs.genre_id = genres.genre_id
             INNER JOIN artists ON songs.artist_id = artists.artist_id ORDER BY year";
 
