@@ -43,7 +43,7 @@ if(isset($_SESSION["favourites"])){
                 <a href= "includes/remove-favourite.inc.php?id=all" class="abutton">Clear Favourites</a>
             </div>
 
-            <h2>Browse Favourites</h2>
+            <h2 id = favs>Browse Favourites</h2>
 
             <div class="table-wrapper">
                 <table>

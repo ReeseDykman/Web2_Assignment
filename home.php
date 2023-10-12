@@ -38,7 +38,7 @@ $studySongs = $searcher->getStudying();
         <div class=info>
             <h1 class= center>Home Page</h1>
             <h2 class= center>COMP 3521 ASSIGN1 BY REESE DYKMAN</h2>
-            <h3 class= center>https://github.com/ReeseDykman/Web2_Assignment</h3>
+            <h3 class= center>https:// github.com/ReeseDykman /Web2_Assignment</h3>
         </div>
 
         <section class=black-box>

@@ -27,3 +27,6 @@ select{
 #greaterYearTxt, #lessYearTxt{
     width: 10%;
 }
+.purple-box{
+    overflow-x: scroll;
+}

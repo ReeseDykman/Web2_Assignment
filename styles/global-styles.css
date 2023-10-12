@@ -5,6 +5,7 @@
 }
 html{
     background-color: rgb(126, 141,133);
+    width: 100%;
 }
 header{
     display: grid;
@@ -27,9 +28,11 @@ body{
     padding: 0;
     color: white;
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto;
-    grid-gap: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    justify-content: space-between;
 }
 header,footer{
     background-color: rgb(246, 142, 95);
@@ -41,7 +44,11 @@ header{
 }
 footer{
     border-top: 10px solid black;
-    max-height: 175px;
+    height: 9rem;
+}
+footer>p{
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 section{
     color: white;
@@ -77,4 +84,31 @@ label{
 a{
     text-decoration: none;
     color: white;
+}
+@media (max-width:875px){
+
+    header{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "a1"
+                            "a2";
+        max-height: 300px;
+    }
+    body>header>.title>h2,h1{
+        margin: 0;
+        grid-area: a1;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        grid-area: a2;
+        height: 200px;
+    }
+    footer{
+        height: 100%;
+    }
 }

@@ -47,3 +47,37 @@ tr:nth-child(3), td:nth-child(3){
     width: 50%;
     padding-left: 25%;
 }
+
+@media (max-width:768px){
+    #top-favs{
+        flex-direction: column;
+        padding-left: 5%;
+    }
+    .table-wrapper{
+        max-width: 100%;
+    }
+    .purple-box{
+        overflow-x:scroll;
+    }
+    #top{
+        flex-direction: column;
+        padding-left: 0;
+        justify-items: center;
+        word-wrap: break-word;
+    }
+    td,th{
+        word-break: normal;
+        padding-bottom: 10px;
+        font-size: 10pt;
+    }
+    th{
+        font-weight: 800;
+        font-size: 15pt;
+        text-align: left;
+    }
+    td>.bbutton{
+        padding: 0;
+        word-break: normal;
+        text-wrap: nowrap;
+    }
+}
