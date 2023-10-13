@@ -25,7 +25,6 @@ tr:nth-child(3), td:nth-child(3){
     min-width: 100px;
 }
 .table-wrapper{
-    overflow-x: scroll;
     max-width: 100%;
 }
 .purple-box{
